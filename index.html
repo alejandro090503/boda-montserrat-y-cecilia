@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover">
-<title>Monserrat y Cecilia · Nuestra Boda</title>
-<meta name="description" content="Nos casamos y queremos que estés ahí. Una celebración especial en Reedley, California.">
+<title>Monserrat y Cecilia · 17 Abril 2027</title>
+<meta name="description" content="Nos casamos y queremos que estés ahí. Una celebración especial en Reedley, California — 17 de Abril 2027.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://boda-montserrat-y-cecilia.vercel.app/">
-<meta property="og:title" content="Monserrat &amp; Cecilia · Nuestra Boda">
-<meta property="og:description" content="Nos casamos y queremos que estés ahí. Reedley, California.">
+<meta property="og:title" content="Monserrat &amp; Cecilia · XVII · IV · MMXXVII">
+<meta property="og:description" content="Nos casamos y queremos que estés ahí. Reedley, California — 17 Abril 2027.">
 <meta property="og:image" content="https://boda-montserrat-y-cecilia.vercel.app/og-image.jpg">
 <meta property="og:locale" content="es_MX">
 <meta name="twitter:card" content="summary_large_image">
@@ -481,7 +481,7 @@ body{font-weight:500}
       <span class="hero-bride rv">Monserrat</span>
       <span class="hero-amp rv">&amp;</span>
       <span class="hero-groom rv">Cecilia</span>
-      <span class="hero-date rv"><!-- PENDIENTE: fecha -->Fecha por confirmar</span>
+      <span class="hero-date rv">Sábado · 17 de Abril</span>
     </div>
     <div class="scroll-hint" id="scrollHint">
       <span class="scroll-hint-txt">Desliza</span>
@@ -497,7 +497,7 @@ body{font-weight:500}
     <p class="sub" id="invHonorTxt" style="margin-top:8px;font-weight:600;color:var(--brown)">Tienen el honor de invitarte a<br>celebrar su boda</p>
     <div class="orn bot"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
     <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--text);line-height:1.9;margin-top:26px;font-weight:400">
-      <!-- PENDIENTE: fecha -->Fecha por confirmar<br>
+      Sábado, 17 de Abril de 2027<br>
       <strong style="font-weight:600;color:var(--dark)">Reedley, California</strong>
     </p>
     <div id="inv-photo-wrap">
@@ -638,7 +638,12 @@ body{font-weight:500}
         Cómo llegar
       </a>
     </div>
-    <!-- PENDIENTE: botón "Guardar en calendario" cuando haya fecha -->
+    <div class="cal-row rv" style="margin-top:22px">
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Monserrat+%26+Cecilia&dates=20270417T220000Z/20270418T060000Z&details=Recepci%C3%B3n+3%3A00+PM&location=42372+Rd+56%2C+Reedley%2C+CA+93654" target="_blank" rel="noopener" class="btn-cal">
+        <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5C3.89 4 3 4.9 3 6v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v10zM7 11h5v5H7z"/></svg>
+        Guardar en Calendario
+      </a>
+    </div>
   </section>
 
   <!-- ITINERARIO (camino en S — plantilla 143) -->
@@ -823,7 +828,7 @@ body{font-weight:500}
     <div class="album-box rv">
       <span class="eyebrow" style="margin-bottom:6px">Álbum de fotos</span>
       <p class="album-qr-txt">Ayúdanos a guardar cada momento: sube aquí las fotos que tomes durante el evento.</p>
-      <div class="album-qr" data-fecha="">
+      <div class="album-qr" data-fecha="2027-04-17">
         <img class="album-qr-img" src="qr-album.png" alt="Código QR del álbum de fotos" width="220" height="220">
         <a class="btn-map album-btn" href="/album">Subir mis fotos</a>
       </div>
@@ -858,7 +863,7 @@ body{font-weight:500}
   <footer id="footer">
     <div class="orn" style="margin-bottom:24px"><div class="orn-line" style="background:linear-gradient(to right,transparent,rgba(230,199,102,.3),transparent)"></div><div class="orn-diamond-sm" style="background:rgba(230,199,102,.5)"></div><div class="orn-diamond" style="background:rgba(230,199,102,.5)"></div><div class="orn-diamond-sm" style="background:rgba(230,199,102,.5)"></div><div class="orn-line" style="background:linear-gradient(to right,transparent,rgba(230,199,102,.3),transparent)"></div></div>
     <div class="footer-names rv">Monserrat y Cecilia</div>
-    <div class="footer-date rv">Reedley · California</div>
+    <div class="footer-date rv">17 · Abril · 2027</div>
     <div class="footer-hr"></div>
     <a href="https://www.instagram.com/elysium.invitaciones" target="_blank" rel="noopener" class="footer-credit rv">@elysium.invitaciones</a>
   </footer>
@@ -1139,7 +1144,7 @@ function initMain(){
 /* ── CUENTA REGRESIVA · ANILLOS (plantilla 62) ──
    PENDIENTE: fecha del evento. Poner aquí la fecha/hora local de Reedley, CA (UTC-7 en verano / UTC-8 en invierno),
    p. ej. '2027-04-17T15:00:00-07:00'. Mientras sea null se muestra "Fecha por confirmar". */
-var WEDDING_DATE=null;
+var WEDDING_DATE='2027-04-17T15:00:00-07:00';
 function initCountdown(){
   var RING_C=2*Math.PI*52,prevS='';
   var pend=document.getElementById('cdPending');
