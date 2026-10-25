@@ -739,6 +739,60 @@ body{font-weight:500}
 
 .hs-photo{animation:levitate 7s ease-in-out infinite}
 .rv2-sec .ink-bg{z-index:-2}
+
+/* ══ HOSPEDAJE · selector + mapa premium ══ */
+.hs-toggle{position:relative;display:flex;width:max-content;margin:6px auto 26px;padding:5px;border-radius:50px;border:1px solid rgba(30,58,138,.22);background:rgba(251,252,254,.85);box-shadow:0 8px 22px rgba(14,30,70,.10)}
+.hs-tg-pill{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);border-radius:50px;background:linear-gradient(135deg,#1E3A8A,#14285E);box-shadow:0 4px 14px rgba(20,40,94,.35),inset 0 0 0 1px rgba(212,175,55,.45);transition:transform .45s cubic-bezier(.34,1.3,.64,1)}
+.hs-toggle.is-map .hs-tg-pill{transform:translateX(100%)}
+.hs-tg{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:8px;min-width:118px;padding:12px 18px;border:none;background:none;cursor:pointer;font-family:'Jost',sans-serif;font-weight:500;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);transition:color .3s}
+.hs-tg.is-on{color:#F7E7A6}
+.hs-tg svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.hs-mapwrap[hidden],.hs-carousel[hidden]{display:none!important}
+.hs-mapwrap{margin:0 auto;max-width:400px}
+.hs-mapframe{position:relative;height:min(150vw,580px);border-radius:28px;overflow:hidden;background:#0A1430;border:1px solid rgba(212,175,55,.45);box-shadow:0 22px 50px rgba(10,20,50,.38),inset 0 0 0 1px rgba(255,255,255,.04);padding:0}
+.hs-mapframe::before{display:none}
+.hs-map{position:absolute;inset:0;height:100%!important;border-radius:0;background:#0A1430}
+
+.hs-map .leaflet-tile-pane{filter:sepia(.9) hue-rotate(190deg) saturate(3.2) brightness(.85)}
+.hs-map .hs-labels{opacity:.9}
+.hs-mapglow{position:absolute;inset:0;pointer-events:none;z-index:500;background:radial-gradient(ellipse 80% 60% at 50% 45%,transparent 55%,rgba(6,12,32,.55) 100%)}
+.hs-map .leaflet-control-attribution{background:rgba(10,20,48,.7);color:rgba(230,199,102,.75);font-size:10px}
+.hs-map .leaflet-control-attribution a{color:#E6C766}
+.hs-route{animation:hsDash 2.8s linear infinite}
+@keyframes hsDash{to{stroke-dashoffset:-18}}
+.hs-npin{display:flex;align-items:center;justify-content:center;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2F4BB0,#14285E 70%);border:2px solid #E6C766;box-shadow:0 0 0 4px rgba(212,175,55,.18),0 6px 16px rgba(0,0,0,.45);transition:transform .35s cubic-bezier(.34,1.56,.64,1),background .3s}
+.hs-npin span{font-family:'Jost',sans-serif;font-weight:500;font-size:17px;line-height:1;color:#F7E7A6}
+.hs-npin.is-on{transform:scale(1.22);background:#FBF6E6}
+.hs-npin.is-on span{color:#14285E}
+.hs-npin::after{content:'';position:absolute;inset:-7px;border-radius:50%;border:1px solid rgba(230,199,102,.55);animation:hsPulse 2.4s ease-out infinite}
+@keyframes hsPulse{0%{transform:scale(.85);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+.hs-vpin{display:flex;flex-direction:column;align-items:center}
+.hs-vpin-in{display:flex;align-items:center;gap:7px;padding:9px 15px;border-radius:50px;background:#FBF6E6;border:1px solid #D4AF37;box-shadow:0 8px 20px rgba(0,0,0,.45);font-family:'Jost',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:#14285E;white-space:nowrap;transition:transform .3s}
+.hs-vpin-in svg{width:15px;height:15px;fill:#D4AF37}
+.hs-vpin i{width:10px;height:10px;margin-top:-6px;background:#FBF6E6;border-right:1px solid #D4AF37;border-bottom:1px solid #D4AF37;transform:rotate(45deg)}
+.hs-vpin.is-on .hs-vpin-in{transform:scale(1.08)}
+.hs-maphint{position:absolute;inset:auto auto 18px 50%;display:block;height:auto;width:auto;z-index:600;transform:translate(-50%,8px);opacity:0;transition:opacity .35s,transform .35s;padding:10px 18px;border-radius:50px;background:rgba(10,20,48,.82);border:1px solid rgba(212,175,55,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:'Jost',sans-serif;font-size:14px;color:#F4F7FB;white-space:nowrap;pointer-events:none}
+.hs-maphint.is-on{opacity:1;transform:translate(-50%,0)}
+.hs-zoom{position:absolute;right:14px;bottom:80px;z-index:600;display:flex;flex-direction:column;border-radius:14px;overflow:hidden;border:1px solid rgba(212,175,55,.4);box-shadow:0 6px 16px rgba(0,0,0,.35)}
+.hs-zoom button{width:42px;height:42px;border:none;background:rgba(10,20,48,.85);color:#F7E7A6;font-size:22px;line-height:1;cursor:pointer}
+.hs-zoom button+button{border-top:1px solid rgba(212,175,55,.3)}
+.hs-mapframe .hs-recenter{position:absolute;top:14px;right:14px;bottom:auto;left:auto;z-index:600;width:42px;height:42px;border-radius:50%;border:1px solid rgba(212,175,55,.45);background:rgba(10,20,48,.85);color:#F7E7A6;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.hs-mapframe .hs-recenter svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7}
+.hs-sheet{position:absolute;left:12px;right:12px;bottom:12px;z-index:700;padding:20px 20px 18px;border-radius:22px;text-align:left;background:linear-gradient(160deg,rgba(20,40,94,.96),rgba(8,16,40,.97));border:1px solid rgba(212,175,55,.4);box-shadow:0 18px 40px rgba(0,0,0,.5);transform:translateY(120%);opacity:0;transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .35s}
+.hs-sheet.is-on{transform:none;opacity:1}
+.hs-sheet-x{position:absolute;top:10px;right:12px;width:36px;height:36px;border:none;background:none;color:#E6C766;font-size:26px;cursor:pointer}
+.hs-sheet-top{display:flex;align-items:center;gap:14px;padding-right:30px}
+.hs-sheet-n{flex:0 0 auto;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#E6C766;color:#14285E;font-family:'Jost',sans-serif;font-weight:500;font-size:19px}
+.hs-sheet-k{font-family:'Jost',sans-serif;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:#E6C766;margin:0 0 2px}
+.hs-sheet-t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;line-height:1.2;color:#F4F7FB;margin:0}
+.hs-sheet-a{font-family:'Jost',sans-serif;font-size:15px;line-height:1.5;color:rgba(244,247,251,.82);margin:14px 0 6px}
+.hs-sheet-d{display:flex;align-items:center;gap:8px;font-family:'Jost',sans-serif;font-weight:500;font-size:15px;color:#F7E7A6;margin:0}
+.hs-sheet-d svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round}
+.hs-sheet-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.hs-sheet-b{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:50px;border:1px solid rgba(230,199,102,.5);color:#F4F7FB;text-decoration:none;font-family:'Jost',sans-serif;font-weight:500;font-size:13.5px;letter-spacing:.16em;text-transform:uppercase}
+.hs-sheet-b svg{width:16px;height:16px;fill:none;stroke:#E6C766;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.hs-mapnote{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:17px;color:var(--text);margin-top:14px}
+@media(prefers-reduced-motion:reduce){.hs-route,.hs-npin::after{animation:none}}
 </style>
 </head>
 <body>
@@ -1040,6 +1094,12 @@ body{font-weight:500}
   <div class="orn" style="margin-top:16px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
   <p class="hs-intro">Si vienes de fuera, te recomendamos estas opciones cercanas a la recepción en Reedley.</p>
 
+  <div class="hs-toggle" role="tablist" aria-label="Ver hospedaje como">
+    <span class="hs-tg-pill" aria-hidden="true"></span>
+    <button type="button" role="tab" class="hs-tg is-on" data-view="list" aria-selected="true"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg>Lista</button>
+    <button type="button" role="tab" class="hs-tg" data-view="map" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Mapa</button>
+  </div>
+
   <div class="hs-carousel">
     <button class="hs-arrow hs-prev" type="button" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
     <button class="hs-arrow hs-next" type="button" aria-label="Siguiente"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
@@ -1111,26 +1171,30 @@ body{font-weight:500}
     </div>
   </div>
 
-  <div class="hs-mapwrap">
-    <div class="hs-maphead">
-      <span class="hs-maplbl">Mapa de la zona</span>
-      <div class="hs-legend">
-        <span><i class="hs-lg hs-lg--venue"></i>Recepción</span>
-        <span><i class="hs-lg hs-lg--hotel"></i>Hoteles</span>
-      </div>
-    </div>
+  <div class="hs-mapwrap" hidden>
     <div class="hs-mapframe">
       <div id="hsMap" class="hs-map" role="region" aria-label="Mapa de la recepción y los hoteles"></div>
-      <div class="hs-maphint" id="hsHint">Usa dos dedos para mover el mapa</div>
-      <button type="button" class="hs-recenter" id="hsRecenter" aria-label="Centrar mapa">
+      <div class="hs-mapglow" aria-hidden="true"></div>
+      <div class="hs-maphint is-on" id="hsHint">Toca un número para ver el hotel</div>
+      <div class="hs-zoom">
+        <button type="button" id="hsZin" aria-label="Acercar">+</button>
+        <button type="button" id="hsZout" aria-label="Alejar">&minus;</button>
+      </div>
+      <button type="button" class="hs-recenter" id="hsRecenter" aria-label="Ver todo el mapa">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
       </button>
+      <div class="hs-sheet" id="hsSheet" aria-live="polite">
+        <button type="button" class="hs-sheet-x" id="hsSheetX" aria-label="Cerrar">&times;</button>
+        <div class="hs-sheet-top"><span class="hs-sheet-n" id="hsSheetN">1</span><div><p class="hs-sheet-k" id="hsSheetK"></p><p class="hs-sheet-t" id="hsSheetT"></p></div></div>
+        <p class="hs-sheet-a" id="hsSheetA"></p>
+        <p class="hs-sheet-d" id="hsSheetD"></p>
+        <div class="hs-sheet-btns">
+          <a class="hs-sheet-b" id="hsSheetMap" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Ver ubicación</a>
+          <a class="hs-sheet-b" id="hsSheetWeb" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/></svg>Reservar</a>
+        </div>
+      </div>
     </div>
-    <div class="hs-chips">
-      <button type="button" class="hs-chip" data-go="venue">Recepción</button>
-      <button type="button" class="hs-chip" data-go="hie">Holiday Inn</button>
-      <button type="button" class="hs-chip" data-go="bw">Best Western</button>
-    </div>
+    <p class="hs-mapnote">Tiempos aproximados en auto, sin tráfico.</p>
   </div>
 </section>
 
@@ -1682,7 +1746,7 @@ function initHospedaje(){
   var track=document.getElementById('hsTrack');
   var slides=track?track.children:[];
   var dots=sec.querySelectorAll('#hsDots button');
-  var idx=0,map=null,markers={};
+  var idx=0,map=null,markers={},focus=function(){};
   function go(i,fromMap){
     if(!slides.length)return;
     idx=(i+slides.length)%slides.length;
@@ -1711,82 +1775,76 @@ function initHospedaje(){
        scrollTrigger:{trigger:sec.querySelector('.hs-carousel'),start:'top 88%',once:true}});
   }
 
-  /* ── mapa ── */
+  /* ── selector Lista / Mapa ── */
+  var listEl=sec.querySelector('.hs-carousel'),mapEl=sec.querySelector('.hs-mapwrap'),tgs=sec.querySelectorAll('.hs-tg'),tgWrap=sec.querySelector('.hs-toggle');
+  function view(v){
+    tgs.forEach(function(t){var on=t.dataset.view===v;t.classList.toggle('is-on',on);t.setAttribute('aria-selected',on?'true':'false');});
+    tgWrap.classList.toggle('is-map',v==='map');
+    if(v==='map'){listEl.hidden=true;mapEl.hidden=false;build();setTimeout(function(){map.invalidateSize();fit();},60);}
+    else{mapEl.hidden=true;listEl.hidden=false;}
+    if(window.gsap)gsap.fromTo(v==='map'?mapEl:listEl,{opacity:0,y:14},{opacity:1,y:0,duration:.5,ease:'power2.out'});
+    if(window.ScrollTrigger)setTimeout(function(){ScrollTrigger.refresh();},80);
+  }
+  tgs.forEach(function(t){t.addEventListener('click',function(){view(t.dataset.view);});});
+
+  /* ── mapa premium (estilo valeyandres.love) ── */
   var el=document.getElementById('hsMap');
   if(!el||!window.L)return;
   var touch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
-
+  var WEB={hie:'https://www.booking.com/hotel/us/holiday-inn-express-suites-dinuba-west.es.html',bw:'https://www.booking.com/hotel/us/best-western-americana.es.html'};
+  var NUM={hie:'1',bw:'2'};
+  var bounds=L.latLngBounds([PLACES.venue.ll,PLACES.hie.ll,PLACES.bw.ll]);
+  function fit(){if(map)map.fitBounds(bounds,{paddingTopLeft:[90,70],paddingBottomRight:[70,120]});}
   function build(){
     if(map)return;
-    map=L.map(el,{zoomControl:true,scrollWheelZoom:false,dragging:!touch,tap:false,attributionControl:true,zoomSnap:.25});
-
-    /* tiles sin key: CARTO Voyager; si falla, Esri World Light Gray */
-    /* CARTO ahora devuelve "API KEY REQUIRED" como imagen (sin error): Esri directo */
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
-      {maxZoom:16,attribution:'Tiles &copy; Esri'}).addTo(map);
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}',
-      {maxZoom:16}).addTo(map);
-
-    /* rutas: halo blanco + línea dorada punteada */
+    map=L.map(el,{zoomControl:false,scrollWheelZoom:false,dragging:!touch,tap:false,attributionControl:true,zoomSnap:.25});
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+      {maxZoom:16,attribution:'Tiles &copy; Esri',className:'hs-tiles'}).addTo(map);
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}',
+      {maxZoom:16,className:'hs-labels'}).addTo(map);
     Object.keys(ROUTES).forEach(function(k){
-      L.polyline(ROUTES[k],{color:'#FBFCFE',weight:7,opacity:.9,interactive:false}).addTo(map);
-      L.polyline(ROUTES[k],{color:k==='hie'?'#B8912A':'#2F4BB0',weight:3.5,opacity:.95,className:'hs-route',interactive:false}).addTo(map);
+      L.polyline(ROUTES[k],{color:'#D4AF37',weight:6,opacity:.16,interactive:false}).addTo(map);
+      L.polyline(ROUTES[k],{color:'#E6C766',weight:2.2,opacity:.9,dashArray:'2 7',lineCap:'round',className:'hs-route',interactive:false}).addTo(map);
     });
-
-    function icon(key){
-      if(key==='venue')return L.divIcon({className:'hs-pin hs-pin--venue',iconSize:[44,44],iconAnchor:[22,53],popupAnchor:[0,-50],
-        html:'<div class="hs-pin-in"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z"/></svg></div>'});
-      return L.divIcon({className:'hs-pin hs-pin--hotel',iconSize:[34,34],iconAnchor:[17,41],popupAnchor:[0,-38],
-        html:'<div class="hs-pin-in"><b>'+(key==='hie'?'1':'2')+'</b></div>'});
-    }
-    Object.keys(PLACES).forEach(function(k){
-      var p=PLACES[k];
-      var html='<span class="hs-pp-k">'+p.k+'</span><span class="hs-pp-t">'+p.t+'</span><span class="hs-pp-a">'+p.a+'</span>'+
-        (p.d?'<span class="hs-pp-d">'+p.d+'</span>':'')+
-        '<a class="hs-pp-l" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination='+p.ll[0]+','+p.ll[1]+'">Cómo llegar</a>';
-      markers[k]=L.marker(p.ll,{icon:icon(k),zIndexOffset:k==='venue'?1000:0,keyboard:true,title:p.t.replace('&amp;','&')})
-        .addTo(map).bindPopup(html,{className:'hs-popup',closeButton:true,autoPanPadding:[20,20],maxWidth:240});
-      markers[k].on('click',function(){
-        setChip(k);
-        for(var i=0;i<slides.length;i++)if(slides[i].dataset.hs===k)go(i,true);
-      });
+    markers.venue=L.marker(PLACES.venue.ll,{zIndexOffset:1000,keyboard:true,title:'Recepción',icon:L.divIcon({className:'hs-vpin',iconSize:[132,40],iconAnchor:[66,44],
+      html:'<div class="hs-vpin-in"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z"/></svg>Recepción</div><i></i>'})}).addTo(map);
+    ['hie','bw'].forEach(function(k){
+      markers[k]=L.marker(PLACES[k].ll,{keyboard:true,title:PLACES[k].t.replace('&amp;','&'),icon:L.divIcon({className:'hs-npin',iconSize:[38,38],iconAnchor:[19,19],
+        html:'<span>'+NUM[k]+'</span>'})}).addTo(map);
     });
+    Object.keys(markers).forEach(function(k){markers[k].on('click',function(){openSheet(k);});});
+    map.on('click',closeSheet);
     fit();
   }
-  var bounds=L.latLngBounds([PLACES.venue.ll,PLACES.hie.ll,PLACES.bw.ll]);
-  function fit(){map.fitBounds(bounds,{padding:[38,38]});}
-  function setChip(k){sec.querySelectorAll('.hs-chip').forEach(function(c){c.classList.toggle('is-on',c.dataset.go===k);});}
-  function focus(k,popup){
-    setChip(k);
-    map.flyTo(PLACES[k].ll,k==='venue'?14:15,{duration:.8});
-    if(popup!==false)setTimeout(function(){markers[k].openPopup();},820);
+  var sheet=document.getElementById('hsSheet'),hint=document.getElementById('hsHint');
+  function $(id){return document.getElementById(id);}
+  function openSheet(k){
+    var p=PLACES[k];
+    Object.keys(markers).forEach(function(m){var e=markers[m].getElement();if(e)e.classList.toggle('is-on',m===k);});
+    $('hsSheetN').textContent=k==='venue'?'♥':NUM[k];
+    $('hsSheetK').textContent=k==='venue'?'Recepción · 3:00 p.m.':'Hotel sugerido';
+    $('hsSheetT').innerHTML=p.t;
+    $('hsSheetA').textContent=p.a;
+    $('hsSheetD').innerHTML=p.d?('<svg viewBox="0 0 24 24"><path d="M5 16l1.5-5A2 2 0 018.4 9.5h7.2a2 2 0 011.9 1.5L19 16M4 16h16v3H4zM7 19v1.5M17 19v1.5"/></svg>'+p.d.replace('aprox. ','').replace(' en auto',' a la recepción')):'Sábado 17 de abril de 2027';
+    $('hsSheetMap').href='https://www.google.com/maps/dir/?api=1&destination='+p.ll[0]+','+p.ll[1];
+    var web=$('hsSheetWeb');if(WEB[k]){web.href=WEB[k];web.style.display='';}else web.style.display='none';
+    sheet.classList.add('is-on');hint.classList.remove('is-on');
+    map.flyTo([p.ll[0]-.006,p.ll[1]],14.5,{duration:.9});
+    for(var i=0;i<slides.length;i++)if(slides[i].dataset.hs===k)go(i,true);
   }
-
-  /* construir el mapa cuando se acerque al viewport (Leaflet mide mal si está oculto) */
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(en){if(en[0].isIntersecting){io.disconnect();build();}},{rootMargin:'400px 0px'});
-    io.observe(el);
-    setTimeout(function(){if(!map&&el.getBoundingClientRect().top<innerHeight*2){io.disconnect();build();}},2500);
-  }else build();
-  window.addEventListener('resize',function(){if(map){map.invalidateSize();}});
-
-  sec.querySelectorAll('.hs-chip').forEach(function(c){
-    c.addEventListener('click',function(){if(!map)build();focus(c.dataset.go);});
-  });
-  var rc=document.getElementById('hsRecenter');
-  if(rc)rc.addEventListener('click',function(){if(!map)build();map.closePopup();setChip('');fit();});
-
+  function closeSheet(){
+    sheet.classList.remove('is-on');hint.classList.add('is-on');
+    Object.keys(markers).forEach(function(m){var e=markers[m].getElement();if(e)e.classList.remove('is-on');});
+  }
+  focus=function(k){openSheet(k);};
+  $('hsSheetX').addEventListener('click',function(e){e.stopPropagation();closeSheet();});
+  $('hsZin').addEventListener('click',function(){map&&map.zoomIn();});
+  $('hsZout').addEventListener('click',function(){map&&map.zoomOut();});
+  $('hsRecenter').addEventListener('click',function(){closeSheet();fit();});
+  window.addEventListener('resize',function(){if(map)map.invalidateSize();});
   /* en touch: un dedo hace scroll de la página; dos dedos mueven el mapa */
   if(touch){
-    var hint=document.getElementById('hsHint'),ht;
-    el.addEventListener('touchstart',function(e){
-      if(!map)return;
-      if(e.touches.length>=2){map.dragging.enable();hint.classList.remove('is-on');}
-      else{map.dragging.disable();}
-    },{passive:true});
-    el.addEventListener('touchmove',function(e){
-      if(e.touches.length===1&&hint){hint.classList.add('is-on');clearTimeout(ht);ht=setTimeout(function(){hint.classList.remove('is-on');},1200);}
-    },{passive:true});
+    el.addEventListener('touchstart',function(e){if(!map)return;if(e.touches.length>=2)map.dragging.enable();else map.dragging.disable();},{passive:true});
     el.addEventListener('touchend',function(e){if(map&&e.touches.length===0)map.dragging.disable();},{passive:true});
   }
 }
