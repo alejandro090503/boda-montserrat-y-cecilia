@@ -455,7 +455,7 @@ body{font-weight:500}
 /* ── HERO: textos abajo, foto ondeando + brillo, scroll ── */
 #hero{align-items:flex-end}
 .hero-content{padding:0 28px 112px;will-change:transform,opacity}
-.hero-bg{inset:-3% -5% -16% -5%;filter:url(#heroWave);will-change:transform;animation:heroBreath 14s ease-in-out infinite alternate}
+.hero-bg{inset:-3% -5% -16% -5%;will-change:transform;animation:heroBreath 14s ease-in-out infinite alternate}
 @keyframes heroBreath{0%{transform:scale(1)}100%{transform:scale(1.05)}}
 .hero-shine{position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:soft-light;background:radial-gradient(ellipse 60% 40% at 30% 30%,rgba(255,246,213,.55) 0%,transparent 70%),linear-gradient(115deg,transparent 35%,rgba(255,250,230,.35) 50%,transparent 65%);background-size:100% 100%,260% 100%;animation:heroShine 9s ease-in-out infinite}
 @keyframes heroShine{0%{background-position:0 0,140% 0;opacity:.55}50%{opacity:1}100%{background-position:0 0,-140% 0;opacity:.55}}
@@ -533,6 +533,10 @@ body{font-weight:500}
 .dc-swatch-lbl{display:block;font-family:'Jost',sans-serif;font-size:14px;font-weight:500;color:var(--text);margin-top:12px}
 @media(prefers-reduced-motion:reduce){.dc-look-ico,.dc-look-arrow,.dcv-mat img{animation:none}}
 
+.dc-figs{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:360px;margin:6px auto 30px;align-items:end}
+.dc-fig{margin:0;display:flex;flex-direction:column;align-items:center}
+.dc-fig img{height:clamp(220px,62vw,270px);width:auto;display:block;filter:drop-shadow(0 10px 16px rgba(14,30,70,.22));transform-origin:50% 100%}
+.dc-fig figcaption{margin-top:14px;font-family:'Jost',sans-serif;font-weight:500;font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
 /* ── LLUVIA DE SOBRES (diseño boda-jeffersson-y-vanessa) ── */
 #regalos{background:var(--bg);overflow:hidden}
 .env-rain{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
@@ -978,28 +982,9 @@ body{font-weight:500}
     <h2 class="heading-sm">Formal</h2>
     <div class="orn" style="margin-top:16px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
     <p class="dc-note">Te pedimos vestir de manera formal<br>para celebrar juntos este gran día.</p>
-    <div class="dc-looks">
-      <button class="dc-look lev" type="button" data-look="caballeros" aria-label="Ver ideas de vestimenta para caballeros">
-        <span class="dc-look-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l4 3 4-3 3 2.2c1.2.9 1.9 2.3 1.9 3.8V21H3V9c0-1.5.7-2.9 1.9-3.8L8 3z"/><path d="M12 6v15"/><path d="M9.4 4.2L12 9l2.6-4.8"/></svg></span>
-        <span class="dc-look-txt"><span class="dc-look-rol">Caballeros</span><span class="dc-look-cta">Ver ideas</span></span>
-        <span class="dc-look-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
-      </button>
-      <button class="dc-look lev lev-2" type="button" data-look="damas" aria-label="Ver ideas de vestimenta para damas">
-        <span class="dc-look-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l-1.4 5.2L21 21H3l7.4-12.8L9 3z"/><path d="M10.6 8.2h2.8"/></svg></span>
-        <span class="dc-look-txt"><span class="dc-look-rol">Damas</span><span class="dc-look-cta">Ver ideas</span></span>
-        <span class="dc-look-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
-      </button>
-    </div>
-    <div class="dc-viewer" id="dcViewer" role="dialog" aria-modal="true" aria-label="Ideas de vestimenta" hidden>
-      <div class="dcv-box">
-        <button class="dc-viewer-close" id="dcViewerClose" type="button" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-        <p class="dcv-head" id="dcvHead"></p>
-        <div class="dcv-viewport"><div class="dcv-track" id="dcvTrack"></div></div>
-        <button class="dcv-nav dcv-prev" id="dcvPrev" type="button" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
-        <button class="dcv-nav dcv-next" id="dcvNext" type="button" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
-        <p class="dcv-cap" id="dcvCap"></p>
-        <div class="dcv-dots" id="dcvDots"></div>
-      </div>
+    <div class="dc-figs">
+      <figure class="dc-fig"><img class="lev" src="caballero.png" alt="Caballeros: traje formal oscuro" width="300" height="610"><figcaption>Caballeros</figcaption></figure>
+      <figure class="dc-fig"><img class="lev lev-2" src="dama.png" alt="Damas: vestido largo formal" width="248" height="604"><figcaption>Damas</figcaption></figure>
     </div>
     <div class="dc-avoid-block">
       <p class="dc-avoid-t">Por favor evita estos colores</p>
