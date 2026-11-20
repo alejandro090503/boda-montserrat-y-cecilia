@@ -392,10 +392,10 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .tl-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible}
 .tl-svg-bg{stroke:rgba(30,58,138,.25);stroke-width:1;fill:none;stroke-dasharray:2 6;stroke-linecap:round}
 .tl-svg-halo{stroke:#1E3A8A;stroke-width:12;stroke-linecap:round;fill:none;opacity:.08}
-.tl-svg-beam{stroke:#E6C766;stroke-width:5;stroke-linecap:round;fill:none;opacity:.35}
+.tl-svg-beam{stroke:#7393B3;stroke-width:5;stroke-linecap:round;fill:none;opacity:.35}
 .tl-svg-path{stroke:url(#tlGrad);stroke-width:2.6;stroke-linecap:round;fill:none}
 .tl-svg-core{stroke:rgba(255,250,235,.85);stroke-width:.8;stroke-linecap:round;fill:none}
-.tl-pearl{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:radial-gradient(circle at 38% 36%,#fff 0%,#fff3cf 40%,rgba(212,175,55,.15) 100%);box-shadow:0 0 10px 4px rgba(255,243,207,.9),0 0 24px 8px rgba(212,175,55,.45),0 0 40px 14px rgba(30,58,138,.18);opacity:0;pointer-events:none;z-index:3;transition:opacity .4s}
+.tl-pearl{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:radial-gradient(circle at 38% 36%,#fff 0%,#DCEBF6 40%,rgba(115,147,179,.2) 100%);box-shadow:0 0 10px 4px rgba(220,235,246,.9),0 0 24px 8px rgba(115,147,179,.5),0 0 40px 14px rgba(30,58,138,.2);opacity:0;pointer-events:none;z-index:3;transition:opacity .4s}
 .tl-row{position:relative;z-index:1;min-height:128px;display:flex;align-items:center;margin-bottom:8px}
 .tl-row[data-side="left"]{padding-left:58px;padding-right:22%;justify-content:flex-start;text-align:left}
 .tl-row[data-side="right"]{padding-right:58px;padding-left:22%;justify-content:flex-end;text-align:right}
@@ -1047,10 +1047,7 @@ body{font-weight:500}
     <div class="timeline" id="tlWrap">
       <svg class="tl-svg" id="tlSvg" preserveAspectRatio="none" aria-hidden="true">
         <defs>
-          <linearGradient id="tlGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#0A1A4A"/><stop offset="18%" stop-color="#1E3A8A"/><stop offset="38%" stop-color="#7393B3"/>
-            <stop offset="50%" stop-color="#E6C766"/><stop offset="62%" stop-color="#7393B3"/><stop offset="82%" stop-color="#1E3A8A"/><stop offset="100%" stop-color="#0A1A4A"/>
-          </linearGradient>
+          <linearGradient id="tlGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#14285E"/><stop offset="35%" stop-color="#1E3A8A"/><stop offset="70%" stop-color="#5B7FA6"/><stop offset="100%" stop-color="#7393B3"/></linearGradient>
         </defs>
         <path class="tl-svg-bg" id="tlPathBg"/><path class="tl-svg-halo" id="tlPathHalo"/><path class="tl-svg-beam" id="tlPathBeam"/><path class="tl-svg-path" id="tlPath"/><path class="tl-svg-core" id="tlPathCore"/>
       </svg>
