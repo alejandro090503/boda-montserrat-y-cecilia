@@ -1360,7 +1360,9 @@ function initEnvelope(){
   var tapped=false;
   gsap.to(envImage,{opacity:1,duration:1.4,ease:'power2.out'});
   gsap.fromTo('#envTap',{opacity:0,y:8},{opacity:1,y:0,duration:.9,delay:1.4,ease:'power2.out'});
+  var finished=false;
   function finish(){
+    if(finished)return;finished=true;
     gsap.to(envFlash,{opacity:1,duration:.18,ease:'power2.in',onComplete:function(){
       envScreen.style.display='none';
       mainWrap.style.visibility='visible';
@@ -1433,6 +1435,7 @@ function launchSparks(){
 
 /* ── MAIN ── */
 function initMain(){
+  if(window.__mainInit)return;window.__mainInit=true;
   window.scrollTo(0,0);
   launchSparks();
 
