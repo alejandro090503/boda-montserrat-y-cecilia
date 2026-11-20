@@ -2024,13 +2024,14 @@ function initRsvp(){
       var bin = atob(b64), bytes = new Uint8Array(bin.length);
       for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
       var p = new TextDecoder().decode(bytes).split('|');
-      return { para: (p[0] || '').trim(), pases: parseInt(p[1], 10) || 1 };
+      return { para: (p[0] || '').trim(), pases: parseInt(p[1], 10) || 1, menores: parseInt(p[2], 10) || 0 };
     } catch(e){ return null; }
   }
   var qs = new URLSearchParams(location.search);
-  var para = '', raw = 1, tok = qs.get('i');
-  if (tok){ var dt = decodeInvite(tok); if (dt && dt.para){ para = dt.para; raw = dt.pases; } }
-  if (!para){ para = (qs.get('para') || '').trim(); raw = parseInt(qs.get('pases'), 10); }
+  var para = '', raw = 1, rawM = 0, tok = qs.get('i');
+  if (tok){ var dt = decodeInvite(tok); if (dt && dt.para){ para = dt.para; raw = dt.pases; rawM = dt.menores; } }
+  if (!para){ para = (qs.get('para') || '').trim(); raw = parseInt(qs.get('pases'), 10); rawM = parseInt(qs.get('menores'), 10); }
+  var menores = (isNaN(rawM) || rawM < 1 || rawM > 20) ? 0 : rawM;
   var pases = (isNaN(raw) || raw < 1 || raw > 20) ? 1 : raw;
   var pasesAUsar = 1;
   var frozen = new Date() > DEADLINE;
@@ -2048,6 +2049,7 @@ function initRsvp(){
   function paintHeader(){
     if (para){ hi.textContent = para; hi.style.display = ''; paraLbl.style.display = ''; }
     num.textContent = pases;
+    var mb = $('rv2MenoresBox'); if (mb){ mb.style.display = menores ? '' : 'none'; $('rv2MenoresNum').textContent = menores; }
     note.textContent = pases === 1 ? 'Hemos reservado un lugar para ti.' : 'Hemos reservado ' + pases + ' lugares en tu honor.';
   }
   function bloquear(msg){
@@ -2075,6 +2077,8 @@ function initRsvp(){
     fields.innerHTML = '';
     for (var a = 0; a < pasesAUsar; a++)
       fields.appendChild(campo(pasesAUsar === 1 ? 'Tu nombre completo' : 'Invitado ' + (a + 1), 'Nombre completo del invitado ' + (a + 1), savedNames[a]));
+    for (var m = 0; m < menores; m++)
+      fields.appendChild(campo(menores === 1 ? 'Nombre del menor' : 'Nombre del menor ' + (m + 1), 'Nombre y apellido del menor', savedNames[pasesAUsar + m]));
   }
   function pintaContador(){
     var ver = estado === 'confirmado' && pases > 1;
@@ -2150,7 +2154,7 @@ function initRsvp(){
         yes.disabled = no.disabled = false;
         if (inv && (inv.estado === 'confirmado' || inv.estado === 'declino')){
           savedNames = (inv.nombres_confirmados || []).slice();
-          pasesAUsar = Math.min(pases, Math.max(1, savedNames.length));
+          pasesAUsar = Math.min(pases, Math.max(1, savedNames.length - menores));
           select(inv.estado); btnText.textContent = 'Actualizar respuesta';
           mostrarGracias(inv.estado, inv.nombres_confirmados || []);
         }
@@ -2174,12 +2178,12 @@ function initRsvp(){
         if (malo && !doble) doble = inputs[k];
       }
       if (doble){ setFb('Escribe un solo nombre en cada campo. Si vienen más personas, sube el contador y escribe cada nombre en su propio campo.', 'err'); doble.focus(); return; }
-      if (nombres.length < pasesAUsar){
-        var faltan = pasesAUsar - nombres.length, primero = null;
+      if (nombres.length < pasesAUsar + menores){
+        var faltan = pasesAUsar + menores - nombres.length, primero = null;
         for (var j = 0; j < inputs.length; j++){ if (!inputs[j].value.trim()){ inputs[j].classList.add('falta'); if (!primero) primero = inputs[j]; } }
-        setFb('Elegiste ' + pasesAUsar + ' pases pero escribiste ' + nombres.length + ' nombre' + (nombres.length === 1 ? '' : 's') +
+        setFb('Elegiste ' + (pasesAUsar + menores) + ' lugares pero escribiste ' + nombres.length + ' nombre' + (nombres.length === 1 ? '' : 's') +
           '. Escribe ' + (faltan === 1 ? 'el nombre que falta' : 'los ' + faltan + ' nombres que faltan') +
-          ' o baja el contador a los pases que vas a utilizar.', 'err');
+          ' o baja el contador de pases.', 'err');
         if (primero) primero.focus();
         return;
       }
