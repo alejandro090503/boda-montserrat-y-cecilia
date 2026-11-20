@@ -1684,7 +1684,7 @@ function initEnvRain(){
   ScrollTrigger.create({trigger:sec,start:'center 60%',once:true,onEnter:land,onEnterBack:land});
   function toggleEnv(e){
     if(e)e.preventDefault();
-    if(!landed){land();gsap.delayedCall(.6,function(){toggleEnv();});return;}
+    if(!landed){land();}
     var open=btn.classList.toggle('open');
     btn.setAttribute('aria-expanded',open?'true':'false');
     if(open&&body)body.classList.remove('landed');else if(body)body.classList.add('landed');
